@@ -1,12 +1,15 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import dayjs from "dayjs";
 //import { BsArrowLeftRight } from "react-icons/bs";
 
 let typingTimer: any = null;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Converter = () => {
   const [usdAmount, setUsdAmount] = useState("1");
   const [myrAmount, setMyrAmount] = useState("0");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [updatedDate, setUpdatedDate] = useState("");
   const [isLoading, setLoading] = useState(false);
 
