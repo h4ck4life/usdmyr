@@ -6,6 +6,7 @@ let typingTimer: any = null;
 export const Converter = () => {
   const [usdAmount, setUsdAmount] = useState("1");
   const [myrAmount, setMyrAmount] = useState("0");
+  const [updatedDate, setUpdatedDate] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   const getMyrToUsd = (inputEl?: ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +24,7 @@ export const Converter = () => {
         const data = await response.json();
         if (amount === "") setMyrAmount("1");
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
+        setUpdatedDate(data.date);
       } catch (error) {
         console.log(error);
       } finally {
@@ -46,6 +48,7 @@ export const Converter = () => {
         const data = await response.json();
         if (amount === "") setUsdAmount("1");
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
+        setUpdatedDate(data.date);
       } catch (error) {
         console.log(error);
       } finally {
@@ -61,7 +64,7 @@ export const Converter = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="mt-5">
       <div className="flex justify-center flex-col text-center text-5xl text-blue-100 font-bold">
         <div className="flex-col flex-wrap">
           <span className="mr-2">USD</span>
@@ -87,6 +90,9 @@ export const Converter = () => {
             onChange={getMyrToUsd}
           />
         </div>
+         <div className="flex-col flex-wrap text-xs text-blue-500">
+            {updatedDate !== "" && updatedDate}
+         </div>   
       </div>
     </div>
   );
