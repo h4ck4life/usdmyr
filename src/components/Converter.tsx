@@ -10,6 +10,7 @@ export const Converter = () => {
   const [usdAmount, setUsdAmount] = useState("1");
   const [myrAmount, setMyrAmount] = useState("0");
   const [sgdAmount, setSgdAmount] = useState("0");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [idrAmount, setIdrAmount] = useState("0");
   const [thbAmount, setThbAmount] = useState("0");
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -83,7 +84,7 @@ export const Converter = () => {
           }&symbols=MYR,USD,IDR,THB`
         );
         const data = await response.json();
-        if (amount === "") setUsdAmount("1");
+        if (amount === "") setSgdAmount("1");
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
         setIdrAmount(parseFloat(data.rates.IDR).toFixed(2));
@@ -111,7 +112,7 @@ export const Converter = () => {
           }&symbols=MYR,USD,SGD,THB`
         );
         const data = await response.json();
-        if (amount === "") setUsdAmount("1");
+        if (amount === "") setIdrAmount("1000");
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
         setSgdAmount(parseFloat(data.rates.SGD).toFixed(2));
@@ -134,11 +135,11 @@ export const Converter = () => {
         setLoading(true);
         const response = await fetch(
           `https://api.exchangerate.host/latest?base=THB&amount=${
-            amount !== "" ? amount : "1"
+            amount !== "" ? amount : "10"
           }&symbols=MYR,USD,SGD,IDR`
         );
         const data = await response.json();
-        if (amount === "") setUsdAmount("1");
+        if (amount === "") setThbAmount("10");
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
         setSgdAmount(parseFloat(data.rates.SGD).toFixed(2));
