@@ -176,7 +176,7 @@ export const Converter = () => {
             <span className="lg:mr-4 md:mr-0 text-blue-400">USD</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -191,7 +191,7 @@ export const Converter = () => {
             <span className="lg:mr-4 md:mr-0 text-blue-400">MYR</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -206,7 +206,7 @@ export const Converter = () => {
             <span className="lg:mr-4 md:mr-0 text-blue-400">SGD</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -221,7 +221,7 @@ export const Converter = () => {
             <span className="lg:mr-4 md:mr-0 text-blue-400">THB</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -236,7 +236,7 @@ export const Converter = () => {
             <span className="lg:mr-4 md:mr-0 text-blue-400">IDR</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
