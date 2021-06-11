@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'google': ['"Source Code Pro"', 'monospace']
+        'google': ['Assistant', '"sans-serif"']
       }
     },
   },
