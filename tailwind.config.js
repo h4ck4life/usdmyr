@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'google': ['DM Sans', '"sans-serif"']
+        'google': ['Roboto Mono', 'monospace']
       }
     },
   },
