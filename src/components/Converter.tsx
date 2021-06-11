@@ -230,7 +230,7 @@ export const Converter = () => {
             onChange={getThb}
           />
         </div>
-        <div className="mt-7 flex-col flex-wrap invisible lg:visible">
+        <div className="mt-7 lg:block flex-wrap hidden">
           <div className="inline-flex">
             <img src={idflag} className="w-8 rounded-3xl mr-3 opacity-50" />
             <span className="lg:mr-4 md:mr-0 text-blue-400">IDR</span>
