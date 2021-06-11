@@ -22,6 +22,8 @@ export const Converter = () => {
   const [updatedDate, setUpdatedDate] = useState("");
   const [isLoading, setLoading] = useState(false);
 
+  const delayTimer = 1200;
+
   const getMyr = (inputEl?: ChangeEvent<HTMLInputElement>) => {
     window.clearTimeout(typingTimer);
     const amount = inputEl ? inputEl.target.value : myrAmount;
@@ -46,7 +48,7 @@ export const Converter = () => {
       } finally {
         setLoading(false);
       }
-    }, 1000);
+    }, delayTimer);
   };
 
   const getUsd = (inputEl?: ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +75,7 @@ export const Converter = () => {
       } finally {
         setLoading(false);
       }
-    }, 800);
+    }, delayTimer);
   };
 
   const getSgd = (inputEl?: ChangeEvent<HTMLInputElement>) => {
@@ -100,7 +102,7 @@ export const Converter = () => {
       } finally {
         setLoading(false);
       }
-    }, 800);
+    }, delayTimer);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -128,7 +130,7 @@ export const Converter = () => {
       } finally {
         setLoading(false);
       }
-    }, 800);
+    }, delayTimer);
   };
 
   const getThb = (inputEl?: ChangeEvent<HTMLInputElement>) => {
@@ -155,7 +157,7 @@ export const Converter = () => {
       } finally {
         setLoading(false);
       }
-    }, 800);
+    }, delayTimer);
   };
 
   useEffect(() => {
@@ -167,13 +169,13 @@ export const Converter = () => {
   return (
     <div className="flex flex-col justify-center text-center">
       <div className="flex justify-center flex-col text-center text-5xl text-blue-100">
-        <div className="mt-7 flex-row md:flex-col flex-wrap">
+        <div className="mt-5 flex-row md:flex-col flex-wrap">
           <div className="inline-flex">
             <img src={usflag} className="w-8 rounded-3xl mr-3 opacity-50" />
             <span className="lg:mr-4 md:mr-0 text-blue-400">USD</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -182,13 +184,13 @@ export const Converter = () => {
             value={usdAmount}
           />
         </div>
-        <div className="mt-7 flex-row md:flex-col flex-wrap">
+        <div className="mt-10 flex-row md:flex-col flex-wrap">
           <div className="inline-flex">
             <img src={myflag} className="w-8 rounded-3xl mr-3 opacity-50" />
             <span className="lg:mr-4 md:mr-0 text-blue-400">MYR</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -197,13 +199,13 @@ export const Converter = () => {
             onChange={getMyr}
           />
         </div>
-        <div className="mt-7 flex-row md:flex-col flex-wrap">
+        <div className="mt-10 flex-row md:flex-col flex-wrap">
           <div className="inline-flex">
             <img src={sgflag} className="w-8 rounded-3xl mr-3 opacity-50" />
             <span className="lg:mr-4 md:mr-0 text-blue-400">SGD</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
@@ -224,13 +226,13 @@ export const Converter = () => {
             onChange={getIdr}
           />
         </div> */}
-        <div className="mt-7 flex-col flex-wrap">
+        <div className="mt-10 flex-col flex-wrap">
           <div className="inline-flex">
             <img src={thflag} className="w-8 rounded-3xl mr-3 opacity-50" />
             <span className="lg:mr-4 md:mr-0 text-blue-400">THB</span>
           </div>
           <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
+            className={`lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
               isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
             }`}
             type="number"
