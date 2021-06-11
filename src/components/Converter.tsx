@@ -1,35 +1,24 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { ChangeEvent, useEffect, useState } from "react";
 import dayjs from "dayjs";
 
-import myrFlag from "../images/my.svg";
-import usdFlag from "../images/us.svg";
-import sgdFlag from "../images/sg.svg";
-import thbFlag from "../images/th.svg";
-import idrFlag from "../images/id.svg";
-
 let typingTimer: any = null;
 const delayTimer = 1000;
-const currency = ["USD", "MYR", "SGD", "THB", "IDR"];
+const currency = ["USD", "MYR", "SGD", "EUR", "AUD", "THB", "IDR"];
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Converter = () => {
   const [usdAmount, setUSDAmount] = useState("1");
   const [myrAmount, setMYRAmount] = useState("0");
   const [sgdAmount, setSGDAmount] = useState("0");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [idrAmount, setIDRAmount] = useState("0");
   const [thbAmount, setTHBAmount] = useState("0");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [eurAmount, setEURAmount] = useState("0");
+  const [audAmount, setAUDAmount] = useState("0");
   const [updatedDate, setUpdatedDate] = useState("");
   const [isLoading, setLoading] = useState(false);
-
-  const usdflag = usdFlag;
-  const myrflag = myrFlag;
-  const sgdflag = sgdFlag;
-  const thbflag = thbFlag;
-  const idrflag = idrFlag;
 
   const getAmountByBase = (
     base: string,
@@ -137,8 +126,13 @@ export const Converter = () => {
           return (
             <div key={currency} className="mt-7 flex-row md:flex-col flex-wrap">
               <div className="inline-flex">
-                <img src={eval(`${currency.toLowerCase()}flag`)} className="w-8 rounded-3xl mr-3 opacity-50" />
-                <span className="lg:mr-4 md:mr-0 text-blue-400">{currency}</span>
+                <img
+                  src={require(`../images/${currency.toLowerCase()}.svg`).default}
+                  className="w-8 rounded-3xl mr-3 opacity-80"
+                />
+                <span className="lg:mr-4 md:mr-0 text-blue-400">
+                  {currency}
+                </span>
               </div>
               <input
                 className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
