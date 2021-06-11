@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { ChangeEvent, useEffect, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import dayjs from "dayjs";
 
-import myflag from "../images/my.svg";
-import usflag from "../images/us.svg";
-import sgflag from "../images/sg.svg";
-import thflag from "../images/th.svg";
-import idflag from "../images/id.svg";
+import myrFlag from "../images/my.svg";
+import usdFlag from "../images/us.svg";
+import sgdFlag from "../images/sg.svg";
+import thbFlag from "../images/th.svg";
+import idrFlag from "../images/id.svg";
 
 let typingTimer: any = null;
 const delayTimer = 1000;
-const currency = ["USD", "SGD", "IDR", "THB", "MYR"];
+const currency = ["USD", "MYR", "SGD", "THB", "IDR"];
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Converter = () => {
@@ -25,6 +24,12 @@ export const Converter = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [updatedDate, setUpdatedDate] = useState("");
   const [isLoading, setLoading] = useState(false);
+
+  const usdflag = usdFlag;
+  const myrflag = myrFlag;
+  const sgdflag = sgdFlag;
+  const thbflag = thbFlag;
+  const idrflag = idrFlag;
 
   const getAmountByBase = (
     base: string,
@@ -128,86 +133,26 @@ export const Converter = () => {
   return (
     <div className="flex flex-col justify-center text-center">
       <div className="flex justify-center flex-col text-center text-5xl text-blue-100">
-        <div className="mt-5 flex-row md:flex-col flex-wrap">
-          <div className="inline-flex">
-            <img src={usflag} className="w-8 rounded-3xl mr-3 opacity-50" />
-            <span className="lg:mr-4 md:mr-0 text-blue-400">USD</span>
-          </div>
-          <input
-            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
-              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
-            }`}
-            type="number"
-            data-base="USD"
-            onChange={getConvertedCurrency}
-            id="usd"
-            value={usdAmount}
-          />
-        </div>
-        <div className="mt-10 flex-row md:flex-col flex-wrap">
-          <div className="inline-flex">
-            <img src={myflag} className="w-8 rounded-3xl mr-3 opacity-50" />
-            <span className="lg:mr-4 md:mr-0 text-blue-400">MYR</span>
-          </div>
-          <input
-            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
-              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
-            }`}
-            type="number"
-            value={myrAmount}
-            id="myr"
-            data-base="MYR"
-            onChange={getConvertedCurrency}
-          />
-        </div>
-        <div className="mt-10 flex-row md:flex-col flex-wrap">
-          <div className="inline-flex">
-            <img src={sgflag} className="w-8 rounded-3xl mr-3 opacity-50" />
-            <span className="lg:mr-4 md:mr-0 text-blue-400">SGD</span>
-          </div>
-          <input
-            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
-              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
-            }`}
-            type="number"
-            value={sgdAmount}
-            id="sgd"
-            data-base="SGD"
-            onChange={getConvertedCurrency}
-          />
-        </div>
-        <div className="mt-10 flex-col flex-wrap">
-          <div className="inline-flex">
-            <img src={thflag} className="w-8 rounded-3xl mr-3 opacity-50" />
-            <span className="lg:mr-4 md:mr-0 text-blue-400">THB</span>
-          </div>
-          <input
-            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
-              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
-            }`}
-            type="number"
-            value={thbAmount}
-            id="thb"
-            data-base="THB"
-            onChange={getConvertedCurrency}
-          />
-        </div>
-        <div className="mt-7 lg:block flex-wrap hidden">
-          <div className="inline-flex">
-            <img src={idflag} className="w-8 rounded-3xl mr-3 opacity-50" />
-            <span className="lg:mr-4 md:mr-0 text-blue-400">IDR</span>
-          </div>
-          <input
-            className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
-              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
-            }`}
-            type="number"
-            value={idrAmount}
-            id="idr"
-            data-base="IDR"
-            onChange={getConvertedCurrency}
-          />
-        </div>
+        {currency.map((currency) => {
+          return (
+            <div key={currency} className="mt-7 flex-row md:flex-col flex-wrap">
+              <div className="inline-flex">
+                <img src={eval(`${currency.toLowerCase()}flag`)} className="w-8 rounded-3xl mr-3 opacity-50" />
+                <span className="lg:mr-4 md:mr-0 text-blue-400">{currency}</span>
+              </div>
+              <input
+                className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+                  isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
+                }`}
+                type="number"
+                data-base={currency}
+                onChange={getConvertedCurrency}
+                id={currency.toLowerCase()}
+                value={eval(`${currency.toLowerCase()}Amount`)}
+              />
+            </div>
+          );
+        })}
       </div>
       {/* <div className="mt-4 flex-col flex-wrap text-xs text-blue-500">
         {updatedDate !== "" &&
