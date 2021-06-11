@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'google': ['Assistant', '"sans-serif"']
+        'google': ['Inconsolata', 'monospace']
       }
     },
   },
