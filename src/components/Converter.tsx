@@ -124,7 +124,7 @@ export const Converter = () => {
       <div className="flex justify-center flex-col text-center text-5xl text-blue-100">
         {currency.map((currency) => {
           return (
-            <div key={currency} className="mt-7 flex-row md:flex-col flex-wrap">
+            <div key={currency} className="my-8 flex-row md:flex-col flex-wrap">
               <div className="inline-flex">
                 <img
                   src={require(`../images/${currency.toLowerCase()}.svg`).default}
@@ -135,8 +135,8 @@ export const Converter = () => {
                 </span>
               </div>
               <input
-                className={`text-shadow-md lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
-                  isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
+                className={`text-shadow-lg focus:text-green-400 lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+                  isLoading ? "text-blue-400 animate-pulse" : "text-blue-100"
                 }`}
                 type="number"
                 data-base={currency}
