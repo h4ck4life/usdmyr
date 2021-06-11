@@ -7,6 +7,7 @@ import myflag from "../images/my.svg";
 import usflag from "../images/us.svg";
 import sgflag from "../images/sg.svg";
 import thflag from "../images/th.svg";
+import idflag from "../images/id.svg";
 
 let typingTimer: any = null;
 
@@ -22,7 +23,7 @@ export const Converter = () => {
   const [updatedDate, setUpdatedDate] = useState("");
   const [isLoading, setLoading] = useState(false);
 
-  const delayTimer = 1200;
+  const delayTimer = 1000;
 
   const getMyr = (inputEl?: ChangeEvent<HTMLInputElement>) => {
     window.clearTimeout(typingTimer);
@@ -40,7 +41,7 @@ export const Converter = () => {
         if (amount === "") setMyrAmount("1");
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
         setSgdAmount(parseFloat(data.rates.SGD).toFixed(2));
-        setIdrAmount(parseFloat(data.rates.IDR).toFixed(2));
+        setIdrAmount((parseFloat(data.rates.IDR) / 1000).toFixed(3));
         setThbAmount(parseFloat(data.rates.THB).toFixed(2));
         setUpdatedDate(data.date);
       } catch (error) {
@@ -67,7 +68,7 @@ export const Converter = () => {
         if (amount === "") setUsdAmount("1");
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
         setSgdAmount(parseFloat(data.rates.SGD).toFixed(2));
-        setIdrAmount(parseFloat(data.rates.IDR).toFixed(2));
+        setIdrAmount((parseFloat(data.rates.IDR) / 1000).toFixed(3));
         setThbAmount(parseFloat(data.rates.THB).toFixed(2));
         setUpdatedDate(data.date);
       } catch (error) {
@@ -94,7 +95,7 @@ export const Converter = () => {
         if (amount === "") setSgdAmount("1");
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
-        setIdrAmount(parseFloat(data.rates.IDR).toFixed(2));
+        setIdrAmount((parseFloat(data.rates.IDR) / 1000).toFixed(3));
         setThbAmount(parseFloat(data.rates.THB).toFixed(2));
         setUpdatedDate(data.date);
       } catch (error) {
@@ -115,7 +116,7 @@ export const Converter = () => {
         setLoading(true);
         const response = await fetch(
           `https://api.exchangerate.host/latest?base=IDR&amount=${
-            amount !== "" ? amount : "1"
+            amount !== "" ? parseFloat(amount) * 1000 : "1000"
           }&symbols=MYR,USD,SGD,THB`
         );
         const data = await response.json();
@@ -150,7 +151,7 @@ export const Converter = () => {
         setMyrAmount(parseFloat(data.rates.MYR).toFixed(2));
         setUsdAmount(parseFloat(data.rates.USD).toFixed(2));
         setSgdAmount(parseFloat(data.rates.SGD).toFixed(2));
-        setIdrAmount(parseFloat(data.rates.IDR).toFixed(2));
+        setIdrAmount((parseFloat(data.rates.IDR) / 1000).toFixed(3));
         setUpdatedDate(data.date);
       } catch (error) {
         console.log(error);
@@ -214,18 +215,6 @@ export const Converter = () => {
             onChange={getSgd}
           />
         </div>
-        {/* <div className="mt-7 flex-col flex-wrap">
-          <span className="lg:mr-4 md:mr-0 text-blue-400">IDR</span>
-          <input
-            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
-              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
-            }`}
-            type="number"
-            value={idrAmount}
-            id="myr"
-            onChange={getIdr}
-          />
-        </div> */}
         <div className="mt-10 flex-col flex-wrap">
           <div className="inline-flex">
             <img src={thflag} className="w-8 rounded-3xl mr-3 opacity-50" />
@@ -239,6 +228,21 @@ export const Converter = () => {
             value={thbAmount}
             id="myr"
             onChange={getThb}
+          />
+        </div>
+        <div className="mt-7 flex-col flex-wrap invisible lg:visible">
+          <div className="inline-flex">
+            <img src={idflag} className="w-8 rounded-3xl mr-3 opacity-50" />
+            <span className="lg:mr-4 md:mr-0 text-blue-400">IDR</span>
+          </div>
+          <input
+            className={`lg:w-auto w-full text-7xl bg-blue-900 p-3 text-center lg:text-left lg:pl-4 focus:outline-none ${
+              isLoading ? "text-blue-600 animate-pulse" : "text-blue-100"
+            }`}
+            type="number"
+            value={idrAmount}
+            id="myr"
+            onChange={getIdr}
           />
         </div>
       </div>
