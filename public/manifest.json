@@ -3,7 +3,7 @@
   "short_name": "SEA Currency Converter",
   "lang": "en-US",
   "start_url": "https://usdmyr.netlify.app",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#312E81",
   "background_color": "#312E81",
   "icons": [
