@@ -4,8 +4,8 @@
   "lang": "en-US",
   "start_url": "https://usdmyr.netlify.app",
   "display": "standalone",
-  "theme_color": "#1E3A8A",
-  "background_color": "#1E3A8A",
+  "theme_color": "#312E81",
+  "background_color": "#312E81",
   "icons": [
     {
       "src": "\/android-icon-36x36.png",

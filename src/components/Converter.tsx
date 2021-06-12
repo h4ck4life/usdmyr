@@ -121,7 +121,7 @@ export const Converter = () => {
 
   return (
     <div className="flex flex-col justify-center text-center">
-      <div className="flex justify-center flex-col text-center text-5xl text-blue-100">
+      <div className="flex justify-center flex-col text-center text-5xl text-indigo-100">
         {currency.map((currency) => {
           return (
             <div key={currency} className="my-8 flex-row md:flex-col flex-wrap">
@@ -130,13 +130,13 @@ export const Converter = () => {
                   src={require(`../images/${currency.toLowerCase()}.svg`).default}
                   className="w-8 rounded-3xl mr-3 opacity-80"
                 />
-                <span className="lg:mr-4 md:mr-0 text-blue-400">
+                <span className="lg:mr-4 md:mr-0 text-indigo-400">
                   {currency}
                 </span>
               </div>
               <input
-                className={`text-shadow-sm font-bold focus:text-green-400 lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
-                  isLoading ? "text-blue-400 animate-pulse" : "text-blue-100"
+                className={`text-shadow-sm font-bold focus:text-green-400 lg:w-auto w-full text-7xl bg-indigo-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+                  isLoading ? "text-indigo-400 animate-pulse" : "text-blue-100"
                 }`}
                 type="number"
                 data-base={currency}
@@ -148,7 +148,7 @@ export const Converter = () => {
           );
         })}
       </div>
-      {/* <div className="mt-4 flex-col flex-wrap text-xs text-blue-500">
+      {/* <div className="mt-4 flex-col flex-wrap text-xs text-indigo-500">
         {updatedDate !== "" &&
           dayjs(updatedDate, "YYYY-MM-DD").format("D MMM YYYY")}
       </div> */}
