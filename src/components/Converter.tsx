@@ -135,7 +135,7 @@ export const Converter = () => {
                 </span>
               </div>
               <input
-                className={`text-shadow-lg focus:text-green-400 lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
+                className={`text-shadow-sm font-bold focus:text-green-400 lg:w-auto w-full text-7xl bg-blue-900 text-center lg:text-left lg:pl-4 focus:outline-none ${
                   isLoading ? "text-blue-400 animate-pulse" : "text-blue-100"
                 }`}
                 type="number"

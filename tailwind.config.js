@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'google': ['Inconsolata', 'monospace']
+        'google': ['"Source Sans Pro"', 'sans-serif']
       }
     },
   },
