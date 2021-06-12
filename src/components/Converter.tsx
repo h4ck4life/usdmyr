@@ -127,7 +127,9 @@ export const Converter = () => {
             <div key={currency} className="my-8 flex-row md:flex-col flex-wrap">
               <div className="inline-flex">
                 <img
-                  src={require(`../images/${currency.toLowerCase()}.svg`).default}
+                  src={
+                    require(`../images/${currency.toLowerCase()}.svg`).default
+                  }
                   className="w-8 rounded-3xl mr-3 opacity-80"
                 />
                 <span className="lg:mr-4 md:mr-0 text-indigo-400">
