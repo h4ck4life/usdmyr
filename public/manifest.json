@@ -2,7 +2,7 @@
   "name": "Simple Currency Converter",
   "short_name": "Simple Currency Converter",
   "lang": "en-US",
-  "start_url": "https://usdmyr.netlify.app",
+  "start_url": "https://simplecurrency.netlify.app",
   "display": "standalone",
   "theme_color": "#312E81",
   "background_color": "#312E81",
