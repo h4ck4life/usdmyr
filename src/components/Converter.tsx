@@ -127,6 +127,7 @@ export const Converter = () => {
             <div key={currency} className="my-8 flex-row md:flex-col flex-wrap">
               <div className="inline-flex">
                 <img
+                  alt={`${currency} flag`}
                   src={
                     require(`../images/${currency.toLowerCase()}.svg`).default
                   }

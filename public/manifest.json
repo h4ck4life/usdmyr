@@ -1,9 +1,9 @@
 {
-  "name": "SEA Currency Converter",
-  "short_name": "SEA Currency Converter",
+  "name": "Simple Currency Converter",
+  "short_name": "Simple Currency Converter",
   "lang": "en-US",
   "start_url": "https://usdmyr.netlify.app",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#312E81",
   "background_color": "#312E81",
   "icons": [
