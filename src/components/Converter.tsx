@@ -131,9 +131,9 @@ export const Converter = () => {
                   src={
                     require(`../images/${currency.toLowerCase()}.svg`).default
                   }
-                  className="w-8 rounded-3xl mr-3 opacity-80"
+                  className="w-8 rounded-3xl mr-3 opacity-80 select-none"
                 />
-                <span className="lg:mr-4 md:mr-0 text-indigo-400">
+                <span className="lg:mr-4 md:mr-0 text-indigo-400 select-none">
                   {currency}
                 </span>
               </div>
